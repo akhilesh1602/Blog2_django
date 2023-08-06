@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li><br>
+        <li><a href="{% url 'articles' %}">Articles</a></li><br>
+        <li><a href="{% url 'create_article' %}">Create_article</a></li><br>
+        
+        <form action="{% url 'search' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="search_query" placeholder="search an article"><br><br>
+             <button type="submit">search</button>
+        </form>
+    </ul>
+       
+    <ul>
+        {% block content %}
+   
+    {% endblock %}
+    </ul>
+
+    
+</body>
+</html>

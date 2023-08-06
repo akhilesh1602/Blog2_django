@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>create article</h1>
+
+<form action="{% url 'create_article' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Title" required><br><br>
+    <textarea name="description" rows="12" cols="35" placeholder="description"></textarea><br><br>
+    <select name="category">
+        <option disabled="disabled" selected="selected">Select Category</option>
+        {% for op in option %}
+        <option value="{{op}}">{{op}}</option>
+        {% endfor %}
+
+
+        {% for article in articles %}
+
+
+       
+
+
+        {% endfor %}
+
+
+    </select><br><br>
+    <button type="submit">submit</button>
+</form>
+
+{% endblock %}
